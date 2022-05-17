@@ -39,8 +39,8 @@ export const ActiveButton = styled.button`
   width: 400px;
   height: 35px;
   border: none;
-  background-color: #417B2B;
-  color: white;
+  background-color: #A6AEF8;
+  color: black;
   font-size: 12px;
   font-weight: bold;
   cursor: pointer;
@@ -65,6 +65,6 @@ export const BacktoLoginButton = styled.div`
   color: #58A6FF;
   border: none;
   outline: none;
-  background-color: #0D1117;
+  background-color: #161B22;
   cursor: pointer;
 `
