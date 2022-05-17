@@ -30,11 +30,25 @@ margin-left: 30px;
 margin-right: 30px;
 `;
 
-export const LightLetter = styled.div`
+export const LightLetter = styled.div<{narration?:boolean}>`
   color: #c4c4c4;
   height: 30px;
   font-size: 20px;
   text-align: center;
+  ${(props) =>
+    props.narration &&
+    css`
+      margin-top: 30px;
+    `}
+`;
+
+export const NarrationText = styled.div`
+  width: 600px;
+  height: 50px;
+  font-size: 40px;
+  text-align: center;
+  font-weight: 600px;
+  color: white;
 `;
 
 export const DisplayMeditationTime = styled.div`
@@ -44,8 +58,13 @@ font-size: 100px;
 color: white;
 `;
 
-export const ActiveButton = styled.button`
-  background-color: #6CAE3E;
+interface ActiveButtonPropsType {
+  backgroundColor: string;
+  isStart?: boolean
+}
+
+export const ActiveButton = styled.button<ActiveButtonPropsType>`
+  background-color: ${props => props.backgroundColor};
   color: white;
   border: none;
   outline: none;
@@ -56,11 +75,9 @@ export const ActiveButton = styled.button`
   font-size: 20px;
   cursor: pointer;
   margin-top: 150px;
-  `;
-  
-  /* ${(props) =>
-    /* props.isStart && */
-    /* css`
+  ${(props) =>
+    props.isStart &&
+      css`
       position: absolute;
       left: 50%;
       bottom: 100px;
@@ -76,4 +93,23 @@ export const ActiveButton = styled.button`
           display: unset;
         }
       }
-    `} */ 
+    `} 
+  `;
+  
+
+interface BreathCirclePropsType {
+  color: string;
+  width: string;
+  height: string;
+}
+
+export const BreathCircle = styled.div<BreathCirclePropsType>`
+  background-color: ${(props) => props.color};
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  border-radius: 50%;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
