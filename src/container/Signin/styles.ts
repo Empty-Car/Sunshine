@@ -12,7 +12,7 @@ export const InputStyle = styled.input`
   padding: 12px;
   border: 1px solid #30363D;
   outline: none;
-  width: 500px;
+  width: 400px;
   font-size: 18px;
   box-sizing: border-box;
   margin-top: 10px;
@@ -22,7 +22,7 @@ export const InputStyle = styled.input`
 
   &:focus {
     outline: none;
-    border: 2px solid #f8a6a6; 
+    border: 2px solid #417B2B; 
   }
 `;
 
@@ -54,12 +54,12 @@ export const ButtonBox = styled.div`
 `
 
 export const LoginButton = styled.button`
-  width: 500px;
-  height: 50px;
+  width: 400px;
+  height: 40px;
   border: none;
-  background-color: #f8a6a6;
+  background-color: #417B2B;
   color: white;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: bold;
   cursor: pointer;
   border-radius: 15px;
@@ -68,7 +68,7 @@ export const LoginButton = styled.button`
 
 export const SignupButtonBox = styled.div`
   margin-top: 60px;
-  width: 500px;
+  width: 300px;
   height: 50px;
   border: 2px solid #30363D;
   background-color: #0D1117;

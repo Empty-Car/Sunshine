@@ -11,7 +11,6 @@ const SigninContainer = () => {
   });
   const { email, password } = inputs;
 
-  const [error, setError] = useState<any>(null)
   const [isSignup, setIsSignup] = useState<boolean>(false)
 
   const navigate = useNavigate();
@@ -23,7 +22,6 @@ const SigninContainer = () => {
 
   const onButtonClick = async () => {
     try {
-      setError(null);
       const res = await Instance.post("/v1/user/token", {
         email: email,
         password: password,
@@ -35,7 +33,7 @@ const SigninContainer = () => {
       localStorage.setItem("user_id", resData.user_id)
 
     } catch(err) {
-      setError(err)
+      alert(err)
     }
   }
 
