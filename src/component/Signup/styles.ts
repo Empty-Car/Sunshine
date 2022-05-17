@@ -55,8 +55,8 @@ export const LabelStyle = styled.label`
 export const LabelInputStyle = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 7px;
+  margin-bottom: 7px;
 `
 
 export const BacktoLoginButton = styled.div`
