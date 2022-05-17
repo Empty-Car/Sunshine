@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as Logo } from "../../asset/logo/logo.svg";
-import { ReactComponent as Profile } from "../../asset/img/profile.svg";
+import { ReactComponent as Profile } from "../../asset/img/profile1.svg";
 
 export const HeaderBox = styled.div`
   position: fixed;
