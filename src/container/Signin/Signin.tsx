@@ -40,21 +40,32 @@ const SigninContainer = () => {
   }
 
   return (
-    <S.DontCover>
+    <div>
+      <S.CneterDiv>
       {isSignup ? (
         <Signup setIsSignup={setIsSignup}/>
-      ) :        <div>
+        ) :        
       <div>
-      <S.InputStyle value={email} name="email" onChange={onSetHandler} placeholder="이메일 입력" />
-    </div>
-    <div>
-      <S.InputStyle value={password} type="password" name="password" placeholder="비밀번호 입력" onChange={onSetHandler}/>
-    </div>
-    <S.ActiveButton onClick={onButtonClick}>로그인하기</S.ActiveButton>
-    <S.ActiveButton onClick={() => setIsSignup(true)}>회원가입하기</S.ActiveButton>
-    </div>}
+        <S.InputLoginBox>
+          <S.LabelInputStyle>
+            <S.LabelStyle>Email address</S.LabelStyle>
+            <S.InputStyle value={email} name="email" onChange={onSetHandler}  />
+          </S.LabelInputStyle>
+          <S.LabelInputStyle>
+            <S.LabelStyle>Password</S.LabelStyle>
+            <S.InputStyle value={password} type="password" name="password" onChange={onSetHandler}/>
+          </S.LabelInputStyle>
+          <S.LoginButton onClick={onButtonClick}>로그인하기</S.LoginButton>
+        </S.InputLoginBox>
+        <S.ButtonBox>
+          <S.SignupButtonBox>빈차가 처음이신가요?
+          <S.SignupButton onClick={() => setIsSignup(true)}>회원가입하기</S.SignupButton>
+          </S.SignupButtonBox>
+        </S.ButtonBox>
+      </div>}
+      </S.CneterDiv>
     
-    </S.DontCover>
+    </div>
   ) 
 }
 
