@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 
 const Header = () => {
   const [isToken, setIsToken] = useState<boolean>(false)
+  const [forceRerendering, setForeceRerendering] = useState<number>(0)
 
   useEffect(() => {
     const token = localStorage.getItem("token")
