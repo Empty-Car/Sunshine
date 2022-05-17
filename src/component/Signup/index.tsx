@@ -2,7 +2,11 @@ import { useState } from "react";
 import { Instance } from "../../axios";
 import * as S from "./styles"
 
-const Signup = (setIsSignup: React.Dispatch<React.SetStateAction<boolean>>) => {
+interface SignupPropsType {
+  setIsSignup: (active: boolean) => void
+}
+
+const Signup = ({setIsSignup}: SignupPropsType) => {
   const [inputs, setInputs] = useState({
     email: "",
     name: "",

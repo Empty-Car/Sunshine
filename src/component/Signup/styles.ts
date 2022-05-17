@@ -24,4 +24,5 @@ export const ActiveButton = styled.button`
   font-size: 12px;
   font-weight: bold;
   cursor: pointer;
+  border-radius: 10px;
 `;

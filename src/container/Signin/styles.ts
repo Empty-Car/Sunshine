@@ -23,17 +23,5 @@ export const ActiveButton = styled.button`
   font-size: 12px;
   font-weight: bold;
   cursor: pointer;
-`;
-
-export const SignupButton = styled.button`
-  width: 120px;
-  height: 50px;
-  margin-top: 50px;
-  margin-left: 30px;
-  border: none;
-  background-color: #f8a6a6;
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-  cursor: pointer;
+  border-radius: 10px;
 `;
