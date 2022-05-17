@@ -22,7 +22,7 @@ export const InputStyle = styled.input`
 
   &:focus {
     outline: none;
-    border: 2px solid #417B2B; 
+    border: 2px solid white; 
   }
 `;
 
@@ -57,8 +57,8 @@ export const LoginButton = styled.button`
   width: 400px;
   height: 40px;
   border: none;
-  background-color: #8957E5;
-  color: white;
+  background-color: white;
+  color: black;
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;

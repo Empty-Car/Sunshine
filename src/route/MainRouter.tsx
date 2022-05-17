@@ -19,8 +19,8 @@ const SubRouter = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<SigninContainer />}></Route>
-        <Route path="/main" element={<MainContainer />}></Route>
+        <Route path="/" element={<MainContainer />}></Route>
+        <Route path="/signin" element={<SigninContainer />}></Route>
         <Route path="/meditation" element={<MeditationContainer />}></Route>
         <Route
           path="/record-emotion"

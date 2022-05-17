@@ -24,7 +24,7 @@ export const InputStyle = styled.input`
 
   &:focus {
     outline: none;
-    border: 2px solid #417B2B; 
+    border: 2px solid white; 
   }
 `;
 
@@ -39,8 +39,8 @@ export const ActiveButton = styled.button`
   width: 400px;
   height: 35px;
   border: none;
-  background-color: #8957E5;
-  color: white;
+  background-color: white;
+  color: black;
   font-size: 12px;
   font-weight: bold;
   cursor: pointer;
