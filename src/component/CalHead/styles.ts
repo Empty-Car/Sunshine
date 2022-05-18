@@ -44,5 +44,5 @@ export const Day = styled.div`
   padding: 10px;
 
 
-  border: 1px solid #c4c4c4;
+  border: 3px solid #0D1117;
 `;

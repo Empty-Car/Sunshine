@@ -18,6 +18,7 @@ interface DatesPropsType {
   isToday: boolean;
   isPrev: boolean;
   isNext: boolean
+  today: number;
 }
 
 interface nameDataType {
@@ -26,7 +27,7 @@ interface nameDataType {
   diary: string
 }
 
-const Dates = ({ date, month, year, isToday, isPrev, isNext }:DatesPropsType) => {
+const Dates = ({ date, month, year, isToday, isPrev, isNext, today }:DatesPropsType) => {
   const [isModal, setIsModal] = useState(false);
   const [nameData, setNameData] = useState<nameDataType>({title:"", mood:"", diary:""});
 
@@ -38,7 +39,17 @@ const Dates = ({ date, month, year, isToday, isPrev, isNext }:DatesPropsType) =>
     setIsModal(false);
   };
 
+  useEffect(() => {
+    console.log(today);
+    
+  }, [today])
+
   const onLoadDiary = async () => {
+    if (date > today || isNext) {
+      alert("미래의 감정은 기록할 수 없어요")
+      return
+    }
+
     openModal();
 
     const userId = localStorage.getItem("user_id");

@@ -2,7 +2,7 @@
 import styled from "styled-components";
 
 export const Calendar = styled.div`
-  margin-top: 150px;
+  margin-top: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,5 +13,5 @@ export const Calendar = styled.div`
 export const CalendarBody = styled.section`
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 `

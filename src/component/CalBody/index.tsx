@@ -39,6 +39,7 @@ const CalBody = ({ totalDate, year, month, today, prevLength, thisLength }: CalB
             }
             isPrev={idx < prevLength}
             isNext={idx >= nextMonthIdx}
+            today={today}
           ></Dates>
         );
       })}

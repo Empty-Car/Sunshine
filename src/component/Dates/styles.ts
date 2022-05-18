@@ -10,8 +10,10 @@ font-size: 20;
 font-weight: 600px;
 background-color: #161B22;
 
-border: 1px solid #0D1117;
+border: 3px solid #0D1117;
+border-radius: 10px;
 box-sizing: border-box;
+cursor: pointer;
 `;
 
 interface DateStylePropsType {
