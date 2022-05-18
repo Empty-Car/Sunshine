@@ -1,15 +1,15 @@
 import * as S from "./styles"
 
 interface MoodButtonType {
-  text?: string;
   backgroundColor: string;
   name?: string;
-  onClick?: () => void;
+  onClick: () => void;
+
 }
 
-const MoodButton = ({text, backgroundColor, name, onClick}: MoodButtonType) => {
+const MoodButton = ({backgroundColor, name, onClick}: MoodButtonType) => {
   return (
-    <S.Button backgroundColor={backgroundColor} name={name} onClick={onClick}>{text}</S.Button>
+    <S.Button backgroundColor={backgroundColor} name={name} onClick={onClick} />
   )
 }
 

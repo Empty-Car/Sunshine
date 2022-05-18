@@ -53,20 +53,15 @@ export const SelectMood = styled.div`
   font-size: 15px;
 
   display: flex;
-`;
-
-export const Bounding = styled.div`
-  height: 35px;
-  width: 3px;
-  background-color: black;
-
-  margin-left: 20px;
+  display: flex;
+  align-items: center;
 `;
 
 export const MoodSelectBox = styled.div`
   height: 30px;
-  width: 50px;
   display: flex;
+  column-gap: 20px;
+  margin-left: 30px; 
 `;
 
 export const DiaryInput = styled.textarea`
@@ -98,3 +93,7 @@ export const SaveButton = styled.button`
   left: 85%;
   top: 3%;
 `;
+
+export const TodayMoodColor = styled.div`
+  margin-left: 30px
+`

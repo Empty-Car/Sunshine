@@ -6,11 +6,11 @@ import MoodButton from "../MoodButton";
 import { dateToString } from "../Dates";
 
 const buttonColors = [
-  { color: "black", text: "선택안함" },
-  { color: "#BDBDBD", text: "최악" },
-  { color: "#D3CCA4", text: "별로" },
-  { color: "#FDD692", text: "보통" },  { color: "#F8A6A6", text: "좋음" },
-  { color: "#FF7473", text: "최고" },
+  { color: "#BDBDBD"},
+  { color: "#D3CCA4"},
+  { color: "#FDD692"},  
+  { color: "#F8A6A6"},
+  { color: "#FF7473"},
 ];
 
 interface DiaryModalPropsType {
@@ -26,7 +26,6 @@ interface DiaryModalPropsType {
 const DiaryModal = ({ isModal, setIsModal, year, month, date, nameData }: DiaryModalPropsType) => {
   const [isMoods, setIsMoods] = useState(false);
   const { title, mood, diary }:{title:string, mood:string, diary:string} = nameData || { title: "", mood: "", diary: "" };
-  const [colorMood, setColorMood] = useState("gray");
 
   const [name, setName] = useState({
     title: title,
@@ -34,11 +33,9 @@ const DiaryModal = ({ isModal, setIsModal, year, month, date, nameData }: DiaryM
     diary: diary,
   });
 
-  const onMoodChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const color = e.target.name;
-    setColorMood(color);
-    setIsMoods(false);
+  const onMoodChange = (color: string) => {
     setName({ ...name, mood: color });
+    setIsMoods(false);
   };
 
   const onDiarySave = async () => {
@@ -76,33 +73,28 @@ const DiaryModal = ({ isModal, setIsModal, year, month, date, nameData }: DiaryM
                   }}
                   name="title"
                   value={name.title}
-                  // value={'씨민'}
                 ></S.TitleInput>
                 <S.DisplayDate>
                   {year}년 {month}월 {date}일
                 </S.DisplayDate>
               <S.SelectMood>
                 <div>오늘의 기분은 어떤 색이었나요? :</div>
-
-                <MoodButton
-                  onClick={() => setIsMoods(true)}
-                  backgroundColor={colorMood}
-                ></MoodButton>
-                {isMoods && (
+                {isMoods ? (
                   <S.MoodSelectBox>
-                    <div>
-                      <S.Bounding />
-                    </div>
-                    {buttonColors.map((ele) => (
+                    {buttonColors.map((ele, idx) => (
                       <MoodButton
+                        key={idx}
                         backgroundColor={ele.color}
                         name={ele.color}
-                        text={ele.text}
-                        onClick={() => onMoodChange}
+                        onClick={() => onMoodChange(ele.color)}
                       />
                     ))}
                   </S.MoodSelectBox>
-                )}
+                ):(
+                <S.TodayMoodColor>
+                  <MoodButton backgroundColor={name.mood} onClick={() => setIsMoods(true)}></MoodButton>
+                </S.TodayMoodColor>
+              )}
               </S.SelectMood>
                <S.DiaryInput
                   placeholder="오늘 하루를 정리해봐요"
@@ -113,7 +105,6 @@ const DiaryModal = ({ isModal, setIsModal, year, month, date, nameData }: DiaryM
                   value={name.diary}
                 ></S.DiaryInput>
             </S.TextBox>
-            {/* <S.SaveButton onClick={onDiarySave}>저장하기</S.SaveButton> */}
           </S.ModalContainer>
         </S.Background>
       ) : null}

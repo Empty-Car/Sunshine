@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const Button = styled.button<{backgroundColor:string}>`
-  margin-left: 20px;
+  display: block;
   height: 30px;
   width: 30px;
   background-color: ${(props) => props.backgroundColor};
