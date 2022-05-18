@@ -10,7 +10,7 @@ font-size: 20;
 font-weight: 600px;
 background-color: #161B22;
 
-border: 1px solid #c4c4c4;
+border: 1px solid #0D1117;
 box-sizing: border-box;
 `;
 

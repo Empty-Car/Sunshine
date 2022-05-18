@@ -3,7 +3,11 @@ import styled from "styled-components";
 export const Form = styled.section`
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 60%;
+
+  @media (max-width: 1200px) {
+    width: 70%;
+  }
 `;
 
 export const Nav = styled.section`
@@ -13,7 +17,7 @@ export const Nav = styled.section`
 `;
 
 export const Year = styled.div`
-  font-size: 32px;
+  font-size: 28px;
   font-weight: bold;
   color: white;
   display: flex;
