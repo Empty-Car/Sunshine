@@ -46,13 +46,7 @@ const Dates = ({ date, month, year, isToday, isPrev, isNext }:DatesPropsType) =>
       `/v1/todo/${dateToString(`${year}-${month}-${date}`)}/user/${userId}`
     );
 
-    const resData = res.data;
-    console.log(resData[resData.length - 1].name);
-    
-    if (resData.length === 0) {
-      alert("작성된 일기가 없어요")
-      return
-    }
+    const resData = res.data;    
     setNameData(JSON.parse(resData[resData.length - 1].name));
       
   };
@@ -60,14 +54,11 @@ const Dates = ({ date, month, year, isToday, isPrev, isNext }:DatesPropsType) =>
     <>
     <S.Form onClick={onLoadDiary}>
       <div>
-        <S.DateStyle isPrev={isPrev} isNext={isNext}>
+        <S.DateStyle isPrev={isPrev} isNext={isNext} isToday={isToday}>
           {date}
-          {isToday ? <S.TodayStyle /> : null}
         </S.DateStyle>
       </div>
-        
     </S.Form>
-    <div>
       <DiaryModal
           isModal={isModal}
           closeModal={closeModal}
@@ -76,7 +67,6 @@ const Dates = ({ date, month, year, isToday, isPrev, isNext }:DatesPropsType) =>
           date={date}
           nameData={nameData}
         />
-    </div>
     </>
   );
 };

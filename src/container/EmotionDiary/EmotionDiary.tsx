@@ -1,15 +1,8 @@
-import { useCallback, useEffect, useState } from "react";
-import styled from "styled-components";
+import { useEffect, useState } from "react";
 import CalBody from "../../component/CalBody";
 import CalHead from "../../component/CalHead";
+import * as S from "./styles"
 
-const Calendar = styled.div`
-  margin-top: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
 
 const EmotionDiary = () => {
   const DATE = new Date();
@@ -19,10 +12,11 @@ const EmotionDiary = () => {
   const [month, setMonth] = useState<number>(MONTH);
   const [year, setYear] = useState<number>(YEAR);
   const [totalDate, setTotalDate] = useState<number[]>([]);
-  const [today, setToday] = useState<number>(new Date().getDate());
 
   const [lenPrevMonth, setLenPrevMonth] = useState(0);
   const [lenThisMonth, setLenThisMonth] = useState(0);
+
+  const today:number = new Date().getDate();
 
 
   const changeDate = (month:number) => {
@@ -59,21 +53,12 @@ const EmotionDiary = () => {
     setTotalDate(changeDate(month));
   }, [month]);
 
-  const goToToday = useCallback(() => {
-    let goDate = new Date().getDate();
-    let goMonth = new Date().getMonth() + 1;
-    let goYear = new Date().getFullYear();
-    setToday(goDate);
-    setMonth(goMonth);
-    setYear(goYear);
-  }, []);
-
   return (
-    <Calendar>
+    <S.CalendarBody className="hihihi">
+    <S.Calendar>
       <CalHead
         year={year}
         month={month}
-        goToToday={goToToday}
         setMonth={setMonth}
         setYear={setYear}
       ></CalHead>
@@ -85,7 +70,8 @@ const EmotionDiary = () => {
         prevLength={lenPrevMonth}
         thisLength={lenThisMonth}
       ></CalBody>
-    </Calendar>
+    </S.Calendar>
+    </S.CalendarBody>
   );
 };
 

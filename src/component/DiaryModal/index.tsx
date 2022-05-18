@@ -24,11 +24,6 @@ interface DiaryModalPropsType {
 }
 
 const DiaryModal = ({ isModal, closeModal, year, month, date, nameData }: DiaryModalPropsType) => {
-  useEffect(() => {
-    console.log(nameData);
-    
-  })
-
   const [isMoods, setIsMoods] = useState(false);
   const { title, mood, diary }:{title:string, mood:string, diary:string} = nameData || { title: "", mood: "", diary: "" };
   const [colorMood, setColorMood] = useState("gray");
