@@ -41,7 +41,7 @@ const CalHead = ({ year, month, setMonth, setYear }: CalHeadPropsType) => {
       </S.Nav>
       <S.Days>
         {DAY.map((day, idx) => {
-          return <S.Day key={idx}>{day}</S.Day>;
+          return <S.Day key={idx} isSat={day==="SAT"} isSun={day==="SUN"}>{day}</S.Day>;
         })}
       </S.Days>
     </S.Form>

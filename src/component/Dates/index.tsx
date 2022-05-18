@@ -35,15 +35,6 @@ const Dates = ({ date, month, year, isToday, isPrev, isNext, today }:DatesPropsT
     setIsModal(true);
   };
 
-  const closeModal = () => {
-    setIsModal(false);
-  };
-
-  useEffect(() => {
-    console.log(today);
-    
-  }, [today])
-
   const onLoadDiary = async () => {
     if (date > today || isNext) {
       alert("미래의 감정은 기록할 수 없어요")
@@ -60,6 +51,9 @@ const Dates = ({ date, month, year, isToday, isPrev, isNext, today }:DatesPropsT
     const resData = res.data;    
     setNameData(JSON.parse(resData[resData.length - 1].name));
       
+    console.log(JSON.parse(resData[resData.length - 1].name));
+
+    console.log(resData);  
   };
   return (
     <>
@@ -72,7 +66,7 @@ const Dates = ({ date, month, year, isToday, isPrev, isNext, today }:DatesPropsT
     </S.Form>
       <DiaryModal
           isModal={isModal}
-          closeModal={closeModal}
+          setIsModal={setIsModal}
           year={year}
           month={isPrev ? month - 1 : month && isNext ? month + 1 : month}
           date={date}

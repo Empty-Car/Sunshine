@@ -16,10 +16,11 @@ export const ModalContainer = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
   max-height: 80%;
-  width: 900px;
-  height: 600px;
+  width: 700px;
+  height: 60%;
   padding: 16px;
   background-color: white;
+  border-radius: 10px;
 `;
 
 export const CloseButton = styled.div`
@@ -27,15 +28,17 @@ export const CloseButton = styled.div`
 `;
 
 export const TextBox = styled.div`
-  margin-top: 20px;
+  /* margin-top: 20px; */
   margin-left: 30px;
+  height: 80%;
 `;
 
 export const TitleInput = styled.input`
   outline: none;
   border: none;
   width: 80%;
-  font-size: 40px;
+  font-size: 35px;
+  font-weight: 600;
 `;
 
 export const DisplayDate = styled.div`
@@ -66,14 +69,19 @@ export const MoodSelectBox = styled.div`
   display: flex;
 `;
 
-export const DiaryInput = styled.input`
+export const DiaryInput = styled.textarea`
   outline: none;
   width: 80%;
+  height: 50%;
   resize: none;
   border: none;
-  height: 60px;
-
+  margin-top: 10px;
   font-size: 20px;
+  padding: 10px;
+
+  &:focus {
+    border-left: 1px solid black;
+  }
 `;
 
 export const SaveButton = styled.button`
@@ -82,9 +90,11 @@ export const SaveButton = styled.button`
   border: none;
   background-color: #ff7473;
   color: white;
-  width: 100px;
+  width: 70px;
   height: 30px;
+  border-radius: 10px;
 
-  margin-left: 700px;
-  margin-top: 300px;
+  position: relative;
+  left: 85%;
+  top: 3%;
 `;

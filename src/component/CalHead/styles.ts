@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 export const Form = styled.section`
   display: flex;
@@ -35,13 +35,27 @@ export const Days = styled.div`
 
 `;
 
-export const Day = styled.div`
+interface DayPropsType {
+  isSat: boolean
+  isSun: boolean;
+}
+
+export const Day = styled.div<DayPropsType>`
   width: calc(100% / 7);
   text-align: center;
   font-size: 16px;
   font-weight: bold;
-  background-color: white;
+  background-color: #2b323b;
   padding: 10px;
+  color: white;
+
+  ${props => props.isSat && css`
+    color: #A166FF;
+  `}
+
+  ${props => props.isSun && css`
+    color: #FF4181;
+  `}
 
 
   border: 3px solid #0D1117;

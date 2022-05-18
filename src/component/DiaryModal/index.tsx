@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
-import { Instance } from "../../axios";
+import { TokenInstance } from "../../axios";
 import * as S from "./styles";
 import MoodButton from "../MoodButton";
 import { dateToString } from "../Dates";
@@ -9,21 +9,21 @@ const buttonColors = [
   { color: "black", text: "선택안함" },
   { color: "#BDBDBD", text: "최악" },
   { color: "#D3CCA4", text: "별로" },
-  { color: "#FDD692", text: "보통" },
-  { color: "#F8A6A6", text: "좋음" },
+  { color: "#FDD692", text: "보통" },  { color: "#F8A6A6", text: "좋음" },
   { color: "#FF7473", text: "최고" },
 ];
 
 interface DiaryModalPropsType {
   isModal: boolean;
-  closeModal: () => void
   year: number;
   month: number;
   date: number;
   nameData: any;
+  setIsModal: React.Dispatch<React.SetStateAction<boolean>>
+
 }
 
-const DiaryModal = ({ isModal, closeModal, year, month, date, nameData }: DiaryModalPropsType) => {
+const DiaryModal = ({ isModal, setIsModal, year, month, date, nameData }: DiaryModalPropsType) => {
   const [isMoods, setIsMoods] = useState(false);
   const { title, mood, diary }:{title:string, mood:string, diary:string} = nameData || { title: "", mood: "", diary: "" };
   const [colorMood, setColorMood] = useState("gray");
@@ -34,15 +34,6 @@ const DiaryModal = ({ isModal, closeModal, year, month, date, nameData }: DiaryM
     diary: diary,
   });
 
-  useEffect(() => {
-    setName({
-      mood: name.mood,
-      title: name.title,
-      diary: name.diary,
-    });
-    
-  }, [nameData]);
-
   const onMoodChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const color = e.target.name;
     setColorMood(color);
@@ -51,11 +42,23 @@ const DiaryModal = ({ isModal, closeModal, year, month, date, nameData }: DiaryM
   };
 
   const onDiarySave = async () => {
-    const res = await Instance.post("/v1/todo", {
+    setIsModal(false)
+
+    const res = await TokenInstance.post("/v1/todo", {
       name: JSON.stringify(name),
       date: dateToString(`${year}-${month}-${date}`),
     });
+
+    console.log(res);
   };
+
+  useEffect(() => {
+    setName({
+      mood: nameData.mood,
+      title: nameData.title,
+      diary: nameData.diary,
+    });
+  }, [nameData]);
 
   return (
     <div>
@@ -63,24 +66,21 @@ const DiaryModal = ({ isModal, closeModal, year, month, date, nameData }: DiaryM
         <S.Background>
           <S.ModalContainer>
             <S.CloseButton>
-              <MdClose onClick={closeModal} size={35}></MdClose>
+              <MdClose onClick={onDiarySave} size={35}></MdClose>
             </S.CloseButton>
             <S.TextBox>
-              <div>
                 <S.TitleInput
                   placeholder="제목 입력"
-                  onChange={(e) => {
+                  onChange={(e:React.ChangeEvent<HTMLInputElement>) => {
                     setName({ ...name, [e.target.name]: e.target.value });
                   }}
                   name="title"
                   value={name.title}
+                  // value={'씨민'}
                 ></S.TitleInput>
-              </div>
-              <div>
                 <S.DisplayDate>
                   {year}년 {month}월 {date}일
                 </S.DisplayDate>
-              </div>
               <S.SelectMood>
                 <div>오늘의 기분은 어떤 색이었나요? :</div>
 
@@ -104,8 +104,7 @@ const DiaryModal = ({ isModal, closeModal, year, month, date, nameData }: DiaryM
                   </S.MoodSelectBox>
                 )}
               </S.SelectMood>
-              <div>
-                <S.DiaryInput
+               <S.DiaryInput
                   placeholder="오늘 하루를 정리해봐요"
                   onChange={(e) => {
                     setName({ ...name, [e.target.name]: e.target.value });
@@ -113,9 +112,8 @@ const DiaryModal = ({ isModal, closeModal, year, month, date, nameData }: DiaryM
                   name="diary"
                   value={name.diary}
                 ></S.DiaryInput>
-              </div>
             </S.TextBox>
-            <S.SaveButton onClick={onDiarySave}>저장하기</S.SaveButton>
+            {/* <S.SaveButton onClick={onDiarySave}>저장하기</S.SaveButton> */}
           </S.ModalContainer>
         </S.Background>
       ) : null}
