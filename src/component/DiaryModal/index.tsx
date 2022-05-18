@@ -63,7 +63,7 @@ const DiaryModal = ({ isModal, setIsModal, year, month, date, nameData }: DiaryM
         <S.Background>
           <S.ModalContainer>
             <S.CloseButton>
-              <MdClose onClick={onDiarySave} size={35}></MdClose>
+              <MdClose onClick={onDiarySave} size={35} style={{color:"white"}}></MdClose>
             </S.CloseButton>
             <S.TextBox>
                 <S.TitleInput
@@ -78,7 +78,7 @@ const DiaryModal = ({ isModal, setIsModal, year, month, date, nameData }: DiaryM
                   {year}년 {month}월 {date}일
                 </S.DisplayDate>
               <S.SelectMood>
-                <div>오늘의 기분은 어떤 색이었나요? :</div>
+                <S.Description>오늘의 기분은 어떤 색이었나요?</S.Description>
                 {isMoods ? (
                   <S.MoodSelectBox>
                     {buttonColors.map((ele, idx) => (
@@ -96,6 +96,8 @@ const DiaryModal = ({ isModal, setIsModal, year, month, date, nameData }: DiaryM
                 </S.TodayMoodColor>
               )}
               </S.SelectMood>
+              {/* <div>-----------------------------------</div> */}
+              <S.Line />
                <S.DiaryInput
                   placeholder="오늘 하루를 정리해봐요"
                   onChange={(e) => {
