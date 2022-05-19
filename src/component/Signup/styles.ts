@@ -26,6 +26,14 @@ export const InputStyle = styled.input`
     outline: none;
     border: 2px solid white; 
   }
+
+  &:valid {
+    color: white;
+  }
+
+  &:invalid {
+    color: red;
+  }
 `;
 
 export const ButtonBox = styled.div`

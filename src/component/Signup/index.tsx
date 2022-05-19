@@ -44,15 +44,15 @@ const Signup = ({setIsSignup}: SignupPropsType) => {
       <S.InputBox>
       <S.LabelInputStyle>
       <S.LabelStyle>Email address</S.LabelStyle>
-         <S.InputStyle value={email} name="email" onChange={onSetHandler}/>
+         <S.InputStyle value={email} name="email" onChange={onSetHandler} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
       </S.LabelInputStyle>
       <S.LabelInputStyle>
       <S.LabelStyle>Nickname</S.LabelStyle>
-         <S.InputStyle value={name} name="name" onChange={onSetHandler}/>
+         <S.InputStyle value={name} name="name" onChange={onSetHandler} />
       </S.LabelInputStyle>
       <S.LabelInputStyle>
       <S.LabelStyle>Password</S.LabelStyle>
-         <S.InputStyle value={password} name="password" onChange={onSetHandler} type="password"/>
+         <S.InputStyle value={password} name="password" onChange={onSetHandler} type="password" maxLength={12}/>
       </S.LabelInputStyle>
       <S.ButtonBox>
         <S.ActiveButton onClick={onButtonClick} disabled={loading}>회원가입하기</S.ActiveButton>
