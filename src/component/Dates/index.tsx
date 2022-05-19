@@ -65,7 +65,7 @@ const Dates = ({ date, month, year, isToday, isPrev, isNext, today }:DatesPropsT
   };
 
   useEffect(() => {
-    if (error) {alert(error); navigate("/signin")}
+    if (error) {alert("로그인 하고 일기를 작성해주세요"); navigate("/signin")}
   }, [error, navigate])
   
   return (

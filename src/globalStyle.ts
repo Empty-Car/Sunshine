@@ -13,6 +13,10 @@ const GlobalStyle = createGlobalStyle`
   ::placeholder{
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
   }
+
+  button:active {
+    text-shadow: 1px 1px 30px black;
+  }
 `;
 
 export default GlobalStyle;

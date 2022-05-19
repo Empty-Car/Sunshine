@@ -1,15 +1,24 @@
 import * as S from './styles'
 import { NavLink } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { TokenInstance } from '../../axios'
+
 
 const Header = () => {
   const [isToken, setIsToken] = useState<boolean>(false)
 
   useEffect(() => {
-    const token = localStorage.getItem("token")
-    if (token === null) {
-      setIsToken(true)
+    const user_id = localStorage.getItem("user_id") 
+
+    const checkToken = async () => {
+      try {
+        await TokenInstance.get(`/v1/user/${user_id}`)
+        setIsToken(true)
+      } catch(err) {
+        setIsToken(false)
+      }
     }
+    checkToken()
   }, [])
 
   return (
@@ -19,11 +28,11 @@ const Header = () => {
       </NavLink>
 
       <S.NavigationButtonBox>
-      {isToken ? <NavLink to="signin" style={
+      {isToken ? <S.ProfileStyle></S.ProfileStyle> : <NavLink to="signin" style={
         ({isActive}) => (
           isActive ? { borderBottom: "3px solid white" }:{})}>
         <S.NavigateButton>로그인</S.NavigateButton>
-      </NavLink> : <S.ProfileStyle></S.ProfileStyle>}
+      </NavLink>}
 
       <NavLink to="meditation" style={
         ({isActive}) => (
