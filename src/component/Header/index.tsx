@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 
 const Header = () => {
   const [isToken, setIsToken] = useState<boolean>(false)
-  const [forceRerendering, setForeceRerendering] = useState<number>(0)
 
   useEffect(() => {
     const token = localStorage.getItem("token")
@@ -25,7 +24,6 @@ const Header = () => {
           isActive ? { borderBottom: "3px solid white" }:{})}>
         <S.NavigateButton>로그인</S.NavigateButton>
       </NavLink> : <S.ProfileStyle></S.ProfileStyle>}
-      
 
       <NavLink to="meditation" style={
         ({isActive}) => (

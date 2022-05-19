@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DiaryModal from "../DiaryModal";
 import { TokenInstance } from "../../axios";
 import * as S from "./styles"

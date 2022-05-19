@@ -14,7 +14,6 @@ export const HeaderBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0px 1px 3px gray;
   z-index: 1;
 `;
 

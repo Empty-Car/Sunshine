@@ -4,14 +4,8 @@ import { TokenInstance } from "../../axios";
 import * as S from "./styles";
 import MoodButton from "../MoodButton";
 import { dateToString } from "../Dates";
+import {BUTTONCOLORS} from "../../constant"
 
-const buttonColors = [
-  { color: "#BDBDBD"},
-  { color: "#D3CCA4"},
-  { color: "#FDD692"},  
-  { color: "#F8A6A6"},
-  { color: "#FF7473"},
-];
 
 interface DiaryModalPropsType {
   isModal: boolean;
@@ -81,7 +75,7 @@ const DiaryModal = ({ isModal, setIsModal, year, month, date, nameData }: DiaryM
                 <S.Description>오늘의 기분은 어떤 색이었나요?</S.Description>
                 {isMoods ? (
                   <S.MoodSelectBox>
-                    {buttonColors.map((ele, idx) => (
+                    {BUTTONCOLORS.map((ele, idx) => (
                       <MoodButton
                         key={idx}
                         backgroundColor={ele.color}

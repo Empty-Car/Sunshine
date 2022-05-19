@@ -26,7 +26,7 @@ const SigninContainer = () => {
         email: email,
         password: password,
       })
-      navigate("main")
+      navigate("/")
 
       const resData = res.data;
       localStorage.setItem("token", resData.token)

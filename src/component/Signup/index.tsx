@@ -14,6 +14,8 @@ const Signup = ({setIsSignup}: SignupPropsType) => {
   });
   const { email, name, password } = inputs;
 
+  const [loading, setLoading] = useState<boolean>(false)
+
   const onSetHandler = (e:React.FormEvent<HTMLInputElement>) => {
       const name = e.currentTarget.name;
       setInputs({ ...inputs, [name]: e.currentTarget.value });
@@ -21,6 +23,8 @@ const Signup = ({setIsSignup}: SignupPropsType) => {
 
   const onButtonClick = async () => {
     try {
+      setLoading(true)
+
       const res = await Instance.post("/v1/user", {
         email: email,
         name: name,
@@ -31,6 +35,8 @@ const Signup = ({setIsSignup}: SignupPropsType) => {
     } catch(err) {
       alert(err)
     }
+
+    setLoading(false)
   }
 
   return (
@@ -49,7 +55,7 @@ const Signup = ({setIsSignup}: SignupPropsType) => {
          <S.InputStyle value={password} name="password" onChange={onSetHandler} type="password"/>
       </S.LabelInputStyle>
       <S.ButtonBox>
-        <S.ActiveButton onClick={onButtonClick}>회원가입하기</S.ActiveButton>
+        <S.ActiveButton onClick={onButtonClick} disabled={loading}>회원가입하기</S.ActiveButton>
         <S.BacktoLoginButton onClick={() => setIsSignup(false)}>로그인으로 돌아가기</S.BacktoLoginButton>
       </S.ButtonBox>
       </S.InputBox>

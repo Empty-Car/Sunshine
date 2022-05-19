@@ -1,8 +1,7 @@
 import React from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import * as S from "./styles"
-
-const DAY = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+import { DAY } from "../../constant"
 
 interface CalHeadPropsType {
   year: number;

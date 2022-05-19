@@ -41,3 +41,10 @@ ${(props) =>
     color: #828282;
   `}
 `;
+
+export const TodayMoodColor = styled.div<{backgroundColor:string}>`
+  width: 30px;
+  height: 30px;
+
+  background-color: ${props => props.backgroundColor}
+`
