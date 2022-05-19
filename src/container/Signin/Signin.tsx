@@ -20,7 +20,7 @@ const SigninContainer = () => {
     setInputs({ ...inputs, [name]: e.currentTarget.value });
   };
 
-  const onButtonClick = async () => {
+  const onLoginClick = async () => {
     try {
       const res = await Instance.post("/v1/user/token", {
         email: email,
@@ -53,7 +53,7 @@ const SigninContainer = () => {
             <S.LabelStyle>Password</S.LabelStyle>
             <S.InputStyle value={password} type="password" name="password" onChange={onSetHandler}/>
           </S.LabelInputStyle>
-          <S.LoginButton onClick={onButtonClick}>로그인하기</S.LoginButton>
+          <S.LoginButton onClick={onLoginClick}>로그인하기</S.LoginButton>
         </S.InputLoginBox>
         <S.ButtonBox>
           <S.SignupButtonBox>빈차가 처음이신가요?

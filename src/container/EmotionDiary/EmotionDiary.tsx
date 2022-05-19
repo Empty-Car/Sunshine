@@ -3,8 +3,25 @@ import CalBody from "../../component/CalBody";
 import CalHead from "../../component/CalHead";
 import * as S from "./styles"
 
-
 const EmotionDiary = () => {
+  // const navigate = useNavigate()
+  // const [error, setError] = useState<any>(false)
+  
+  // useEffect(() => {
+  //   const tokenCheck = async () => {
+  //     const user_id = localStorage.getItem("user_id")
+  //     try {
+  //       setError(null)
+
+  //       await TokenInstance.get(`/v1/user/${user_id}`)
+  //     } catch(err) {
+  //       setError(err)
+  //     }
+  //   }
+  //   tokenCheck()
+  //   if (error) {alert(error); navigate("/signin")}
+  // }, [error, navigate])
+
   const DATE = new Date();
   const YEAR = DATE.getFullYear();
   const MONTH = DATE.getMonth() + 1;
