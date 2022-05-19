@@ -33,7 +33,7 @@ const Dates = ({ date, month, year, isToday, isPrev, isNext, today }:DatesPropsT
   const [nameData, setNameData] = useState<nameDataType>({title:"", mood:"", diary:""});
 
   const navigate = useNavigate()
-  const [error, setError] = useState<any>(false)
+  const [error, setError] = useState<any>(null)
 
   const openModal = () => {
     setIsModal(true);
