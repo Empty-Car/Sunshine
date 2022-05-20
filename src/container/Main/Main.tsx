@@ -9,14 +9,10 @@ const MainContainer = () => {
     const userId = localStorage.getItem("user_id")
     
     const request = async () => {
-      try {
         const res = await TokenInstance.get(`/v1/user/${userId}`)
         setName(res.data.name)
-      } catch(err) {
-        alert(err)
       }
-    }
-    request()
+      request()
   },[])
 
   return (
