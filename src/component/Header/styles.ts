@@ -34,7 +34,7 @@ export const NavigationButtonBox = styled.div`
   display:flex;
   align-items: flex-end;
   justify-content: space-around;
-  align-items: center;
+  /* align-items: center; */
   width: 20%;
 
   @media (max-width: 1200px) {

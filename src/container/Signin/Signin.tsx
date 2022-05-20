@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { Instance } from "../../axios";
 import Signup from "../../component/Signup";
 import * as S from "./styles"
+import {useSetRecoilState} from 'recoil'
+import { isTokenState } from "../../recoil";
 
 const SigninContainer = () => {
   const [inputs, setInputs] = useState({
@@ -12,6 +14,7 @@ const SigninContainer = () => {
   const { email, password } = inputs;
 
   const [isSignup, setIsSignup] = useState<boolean>(false)
+  const setIsToken = useSetRecoilState<boolean>(isTokenState)
 
   const navigate = useNavigate();
 
@@ -31,6 +34,8 @@ const SigninContainer = () => {
       const resData = res.data;
       localStorage.setItem("token", resData.token)
       localStorage.setItem("user_id", resData.user_id)
+
+      setIsToken(true)
 
     } catch(err) {
       alert(err)

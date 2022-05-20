@@ -1,11 +1,12 @@
 import * as S from './styles'
 import { NavLink } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { TokenInstance } from '../../axios'
-
+import { useRecoilState } from 'recoil'
+import { isTokenState } from '../../recoil'
 
 const Header = () => {
-  const [isToken, setIsToken] = useState<boolean>(false)
+  const [isToken, setIsToken] = useRecoilState<boolean>(isTokenState)
 
   useEffect(() => {
     const checkToken = async () => {
@@ -19,7 +20,7 @@ const Header = () => {
       }
     }
     checkToken()
-  }, [])
+  }, [setIsToken])
 
   return (
     <S.HeaderBox>
@@ -28,7 +29,8 @@ const Header = () => {
       </NavLink>
 
       <S.NavigationButtonBox>
-      {isToken ? <S.ProfileStyle></S.ProfileStyle> : <NavLink to="signin" style={
+      {isToken ? <S.ProfileStyle></S.ProfileStyle> 
+      : <NavLink to="signin" style={
         ({isActive}) => (
           isActive ? { borderBottom: "3px solid white" }:{})}>
         <S.NavigateButton>로그인</S.NavigateButton>
