@@ -21,7 +21,7 @@ const MainContainer = () => {
 
   return (
     <div>
-      {name.length===0 ? <S.Div>안녕하세요</S.Div> : <S.Div>{name}님, 안녕하세요</S.Div>}
+      {name.length===0 ? <S.Div>안녕하세요<div>메인은 공사중입니다👷</div></S.Div> : <S.Div>{name}님, 안녕하세요.<div>메인은 공사중입니다👷‍♂️</div></S.Div>}
     </div>
     
   ) 

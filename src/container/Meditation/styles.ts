@@ -1,7 +1,6 @@
 import styled, {css} from "styled-components";
 
 export const MeditationBox = styled.section`
-padding-top: 60px;
 `;
 
 export const CenterBox = styled.div`

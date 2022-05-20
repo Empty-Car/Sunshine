@@ -26,16 +26,20 @@ export const LogoStyle = styled(Logo)`
 export const ProfileStyle = styled(Profile)`
   width: 30px;
   height: 30px;
-  margin-right: 10px;
-  margin-left: 10px;
+  /* margin-right: 10px;
+  margin-left: 10px; */
 `;
 
 export const NavigationButtonBox = styled.div`
-  align-items: flex-end;
-  margin-right: 50px;
   display:flex;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: space-around;
   align-items: center;
+  width: 20%;
+
+  @media (max-width: 1200px) {
+    width: 40%;
+  }
 `
 
 export const NavigateButton = styled.button`

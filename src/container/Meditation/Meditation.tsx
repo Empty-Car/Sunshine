@@ -110,9 +110,9 @@ const MeditationContainer = () => {
             </S.CenterBox>
           ) : (
             <S.CenterBox>
-              <S.BreathCircle className="ani" color="white" width="300px" height="300px"/>
-              <S.BreathCircle className="ani1" color="black" width="250px" height="250px"/>
-              <S.BreathCircle className="ani2" color="#6CAE3E" width="200px" height="200px"/>
+              <S.BreathCircle className="ani" color="#A5A5A5" width="300px" height="300px"/>
+              <S.BreathCircle className="ani1" color="#C4C4C4" width="250px" height="250px"/>
+              <S.BreathCircle className="ani2" color="#E6E6E6" width="200px" height="200px"/>
               <S.ActiveButton onClick={onClickStop} backgroundColor="#6CAE3E" isStart={isStart}>
                 <span className="not-hover">
                   <Timer m={String(time)} s="0" narration={narration}></Timer>

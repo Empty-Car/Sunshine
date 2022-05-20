@@ -34,10 +34,10 @@ const Header = () => {
         <S.NavigateButton>로그인</S.NavigateButton>
       </NavLink>}
 
-      <NavLink to="meditation" style={
+      <NavLink to="calm" style={
         ({isActive}) => (
           isActive ? { borderBottom: "3px solid white" }:{})}>
-        <S.NavigateButton>명상</S.NavigateButton>
+        <S.NavigateButton>호흡 진정</S.NavigateButton>
       </NavLink>
 
       <NavLink to="record-emotion" style={
