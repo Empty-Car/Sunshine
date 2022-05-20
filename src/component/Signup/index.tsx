@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Instance } from "../../axios";
 import * as S from "./styles"
+import {toast} from "react-toastify"
 
 interface SignupPropsType {
   setIsSignup: (active: boolean) => void
@@ -25,12 +26,16 @@ const Signup = ({setIsSignup}: SignupPropsType) => {
     try {
       setLoading(true)
 
-      const res = await Instance.post("/v1/user", {
+      await Instance.post("/v1/user", {
         email: email,
         name: name,
         password: password
       })
       setIsSignup(false)
+      toast.success("회원가입 완료!", {
+        autoClose: 3000,
+        position: toast.POSITION.TOP_RIGHT
+      })
 
     } catch(err) {
       alert(err)

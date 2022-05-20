@@ -8,10 +8,10 @@ const Header = () => {
   const [isToken, setIsToken] = useState<boolean>(false)
 
   useEffect(() => {
-    const user_id = localStorage.getItem("user_id") 
-
     const checkToken = async () => {
       try {
+        const user_id = localStorage.getItem("user_id") 
+
         await TokenInstance.get(`/v1/user/${user_id}`)
         setIsToken(true)
       } catch(err) {

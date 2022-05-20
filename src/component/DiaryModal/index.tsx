@@ -5,7 +5,7 @@ import * as S from "./styles";
 import MoodButton from "../MoodButton";
 import { dateToString } from "../Dates";
 import {BUTTONCOLORS} from "../../constant"
-
+import { toast } from "react-toastify";
 
 interface DiaryModalPropsType {
   isModal: boolean;
@@ -14,7 +14,6 @@ interface DiaryModalPropsType {
   date: number;
   nameData: any;
   setIsModal: React.Dispatch<React.SetStateAction<boolean>>
-
 }
 
 const DiaryModal = ({ isModal, setIsModal, year, month, date, nameData }: DiaryModalPropsType) => {
@@ -34,13 +33,19 @@ const DiaryModal = ({ isModal, setIsModal, year, month, date, nameData }: DiaryM
 
   const onDiarySave = async () => {
     setIsModal(false)
-
-    const res = await TokenInstance.post("/v1/todo", {
-      name: JSON.stringify(name),
-      date: dateToString(`${year}-${month}-${date}`),
-    });
-
-    console.log(res);
+    
+      try {
+        await TokenInstance.post("/v1/todo", {
+          name: JSON.stringify(name),
+          date: dateToString(`${year}-${month}-${date}`),
+        });
+        toast.success("저장되었습니다.", {
+          autoClose: 2000,
+          position:toast.POSITION.TOP_RIGHT
+        })
+      } catch(err) {
+        alert(err)
+      }
   };
 
   useEffect(() => {

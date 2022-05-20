@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DiaryModal from "../DiaryModal";
 import { TokenInstance } from "../../axios";
 import * as S from "./styles"
-import { useNavigate } from "react-router-dom";
 
 export const dateToString = (date:string) => {
   const d = new Date(date);
@@ -32,41 +31,26 @@ const Dates = ({ date, month, year, isToday, isPrev, isNext, today }:DatesPropsT
   const [isModal, setIsModal] = useState(false);
   const [nameData, setNameData] = useState<nameDataType>({title:"", mood:"", diary:""});
 
-  const navigate = useNavigate()
-  const [error, setError] = useState<any>(null)
-
   const openModal = () => {
     setIsModal(true);
   };
 
-  const onLoadDiary = () => {
+  const onLoadDiary = async () => {
     if (date > today || isNext) {
       alert("미래의 감정은 기록할 수 없어요")
       return
     }
     openModal();
 
-    const userId = localStorage.getItem("user_id");
+      const userId = localStorage.getItem("user_id");
 
-    const request = async() => {
-      try {
-        setError(null)
-        const res = await TokenInstance.get(
-          `/v1/todo/${dateToString(`${year}-${month}-${date}`)}/user/${userId}`
-        );
-        const resData = res.data;    
-        setNameData(JSON.parse(resData[resData.length - 1].name));
-  
-      } catch(err) {
-        setError(err)
-      }
-    }
-    request()
+      const res = await TokenInstance.get(
+        `/v1/todo/${dateToString(`${year}-${month}-${date}`)}/user/${userId}`
+      );
+
+      const resData = res.data;    
+      setNameData(JSON.parse(resData[resData.length - 1].name));
   };
-
-  useEffect(() => {
-    if (error) {alert("로그인 하고 일기를 작성해주세요"); navigate("/signin")}
-  }, [error, navigate])
   
   return (
     <>
