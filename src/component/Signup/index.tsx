@@ -17,8 +17,8 @@ const Signup = ({setIsSignup}: SignupPropsType) => {
   const { email, name, password } = inputs;
   const [loading, setLoading] = useState<boolean>(false)
 
-  const [corrEmail, setCorrEmail] = useState<boolean>(false)
-  const [corrPassword, setCorrPassword] = useState<boolean>(false)
+  const [corrEmail, setCorrEmail] = useState<boolean>(true)
+  const [corrPassword, setCorrPassword] = useState<boolean>(true)
 
   const onSetHandler = (e:React.FormEvent<HTMLInputElement>) => {
       const name = e.currentTarget.name;
@@ -73,7 +73,7 @@ const Signup = ({setIsSignup}: SignupPropsType) => {
       <S.LabelStyle>Password</S.LabelStyle>
          <S.InputStyle value={password} name="password" onChange={onSetHandler} type="password" isCorrect={corrPassword}/>
          <div>
-           {corrEmail || <S.WrongInput>잘못된 비밀번호 형식입니다.(8글자 이상, 특수문자, 숫자 포함)</S.WrongInput>}
+           {corrPassword || <S.WrongInput>잘못된 비밀번호 형식입니다.(8글자 이상, 특수문자, 숫자 포함)</S.WrongInput>}
          </div>
       </S.LabelInputStyle>
       <S.ButtonBox>
