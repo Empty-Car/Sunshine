@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 export const InputBox = styled.div`
   border: 1px solid #21262D;
@@ -9,7 +9,7 @@ export const InputBox = styled.div`
   border-radius: 10px;
 `
 
-export const InputStyle = styled.input`
+export const InputStyle = styled.input<{isCorrect: boolean}>`
   padding: 12px;
   border: 2px solid #30363D;
   outline: none;
@@ -27,14 +27,18 @@ export const InputStyle = styled.input`
     border: 2px solid white; 
   }
 
-  &:valid {
-    color: white;
-  }
-
-  &:invalid {
-    color: red;
-  }
+  ${props => props.isCorrect ?
+    css`color: #6CAE3E;` : 
+    css`color: #FF4181;`
+    }
 `;
+
+export const WrongInput = styled.div`
+  font-size: 13px;
+  color: #FF4181;
+  margin-left: 10px;
+  margin-top: px;
+`
 
 export const ButtonBox = styled.div`
   display: flex;
