@@ -5,3 +5,4 @@ export const Div = styled.div`
   color: white;
   font-size: 50px;
 `
+

@@ -87,20 +87,3 @@ const Signup = ({setIsSignup}: SignupPropsType) => {
 }
 
 export default Signup
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

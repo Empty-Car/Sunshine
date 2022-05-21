@@ -1,6 +1,7 @@
 import * as S from "./styles"
 import { TokenInstance } from "../../axios"
 import { useEffect, useState } from "react"
+import Statistics from "../../component/Statistics"
 
 const MainContainer = () => {  
   const [name, setName] = useState<string>("")
@@ -17,7 +18,15 @@ const MainContainer = () => {
 
   return (
     <div>
-      {name.length===0 ? <S.Div>안녕하세요<div>메인은 공사중입니다👷</div></S.Div> : <S.Div>{name}님, 안녕하세요.<div>메인은 공사중입니다👷‍♂️</div></S.Div>}
+      {name.length===0 ? <S.Div>안녕하세요</S.Div>
+       :
+        <div>
+          <S.Div>{name}님, 안녕하세요.</S.Div>
+          빈차에서 마음을 쉬다 가세요
+
+          <Statistics/>
+        </div>
+        }
     </div>
     
   ) 
