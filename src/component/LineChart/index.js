@@ -2,18 +2,17 @@ import { ResponsiveLine } from "@nivo/line";
 
 export const LineChart = ({ data }) => (
   <ResponsiveLine
-    
     data={data}
     margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
     xScale={{ type: "point" }}
     yScale={{
       type: "linear",
-      min: "5.0",
-      max: "20.0",
+      min: "1.0",
+      max: "5.0",
       stacked: true,
       reverse: false,
     }}
-    yFormat=" >-.2f"
+    yFormat=" >-.1f"
     curve="natural"
     axisTop={null}
     axisRight={null}
@@ -32,7 +31,6 @@ export const LineChart = ({ data }) => (
       tickRotation: 0,
       legendOffset: -40,
       legendPosition: "middle",
-      textColor: "white"
     }}
     pointSize={10}
     pointColor={{ theme: "background" }}
