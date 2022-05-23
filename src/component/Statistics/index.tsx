@@ -29,14 +29,9 @@ const Statistics = () => {
         <S.ChartBox>
           <BarChart data={OECDData}/>
         </S.ChartBox>
-
-        {/* <S.PlotTitleBox>
-          <S.PlotTitle>국가별 우울증 유병률(2020)</S.PlotTitle>
-        </S.PlotTitleBox>
-        <S.ChartBox>
-          <BarChart data={OECDData}/>
-        </S.ChartBox> */}
       </S.Card>
+
+      <div>-----</div>
     </S.StatisticsBox>
   )
 }
