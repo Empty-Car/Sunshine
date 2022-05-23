@@ -22,8 +22,6 @@ const MainContainer = () => {
        :
         <div>
           <S.Div>{name}님, 안녕하세요.</S.Div>
-          빈차에서 마음을 쉬다 가세요
-
           <Statistics/>
         </div>
         }
