@@ -22,9 +22,9 @@ const MainContainer = () => {
        :
         <div>
           <S.Div>{name}님, 안녕하세요.</S.Div>
-          <Statistics/>
         </div>
         }
+        <Statistics/>
     </div>
     
   ) 
